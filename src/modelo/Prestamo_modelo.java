@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class Prestamo_modelo extends Conector{
 
-	Prestamo_modelo(String dbIzena) {
+	public Prestamo_modelo(String dbIzena) {
 		super(dbIzena);
 		// TODO Auto-generated constructor stub
 	}

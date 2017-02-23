@@ -29,6 +29,7 @@ public class Main {
 
 		Libro_modelo lm = new Libro_modelo("biblioteka");
 		Socio_modelo sm = new Socio_modelo("biblioteka");
+		Prestamo_modelo pm = new Prestamo_modelo("biblioteka");
 		
 		Scanner scan = new Scanner(System.in);
 
@@ -138,6 +139,10 @@ public class Main {
 				while (i.hasNext()){
 					i.next().mostrarInfo();
 				}
+				break;	
+			case VER_PRESTAMO:
+				//pm.select(1,1,Date(2017/03/23));
+				
 				break;	
 			
 			case SALIR:

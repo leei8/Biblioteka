@@ -17,6 +17,7 @@ public class Main {
 	public final static int ELIMINAR_LIBRO = 7;
 	public final static int ELIMINAR_SOCIO = 8;
 	public final static int VER_LIBROS_AUTOR = 9;
+	public final static int VER_PRESTAMO = 10;
 	
 	public final static int SALIR = 0;
 	
@@ -43,6 +44,7 @@ public class Main {
 			System.out.println("7. Eliminar libro");
 			System.out.println("8. Eliminar socio");
 			System.out.println("9. Ver libros por autor");
+			System.out.println("10. Ver prestamo");
 			System.out.println("0. Salir del menú\n");
 			
 			opcion = Integer.parseInt(scan.nextLine());

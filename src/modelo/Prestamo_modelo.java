@@ -36,7 +36,24 @@ public class Prestamo_modelo extends Conector{
 	
 	
 	//PRESTAMO select id-s y fecha
-	
+	public Prestamo select(int id_libro, int id_socio, Date fecha) {
+		try {
+			Statement st = this.conexion.createStatement();
+			ResultSet rs = st.executeQuery("select * from prestamos "
+										 + "where id_libro='" + id_libro + "' and "
+										 		+ "id_socio='" + id_socio + "' and "
+										 		+ "fecha='" + fecha + "'");
+			rs.next();
+			Prestamo prestamo = new Prestamo(id_libro, id_socio, fecha, rs.getBoolean("devuelto"));
+			return prestamo;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+			return null;
+	}
+
 
 	public void insert(Prestamo prestamo) {
 		try {

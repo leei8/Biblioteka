@@ -28,11 +28,20 @@ public class Prestamo {
 	
 	public void mostrarInfo() {
 	
-		System.out.println("Id de libro: " + this.id_libro);
-		System.out.println("Id de socio: " + this.id_socio);
+		//socio, titulo, fecha y devuelto
+		Libro_modelo lm = new Libro_modelo("Biblioteka");
+		Socio_modelo sm = new Socio_modelo("Biblioteka");
+		
+		Libro libro = lm.select(this.id_libro);
+		Socio socio  = sm.select(this.id_socio);
+		
+		System.out.println("Nombre de libro: " + libro.getTitulo());
+		System.out.println("Nombre de socio: " + socio.getNombre());
 		System.out.println("Fecha: " + this.fecha);
 		System.out.println("Ha sido devuelto?: " + this.devuelto);
 	}
+	
+	
 	
 	public int getId_libro() {
 		return id_libro;

@@ -1,6 +1,9 @@
 package principal;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.Scanner;
 
@@ -141,7 +144,17 @@ public class Main {
 				}
 				break;	
 			case VER_PRESTAMO:
-				//pm.select(1,1,Date(2017/03/23));
+				
+				SimpleDateFormat eus_format = new SimpleDateFormat("yyyy/MM/dd");
+				try {
+					
+					Date fecha = eus_format.parse("2017/02/23");
+					pm.select(1,1,fecha);
+					
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				
 				break;	
 			

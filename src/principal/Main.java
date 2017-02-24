@@ -145,11 +145,12 @@ public class Main {
 				break;	
 			case VER_PRESTAMO:
 				
-				SimpleDateFormat eus_format = new SimpleDateFormat("yyyy/MM/dd");
+				SimpleDateFormat eus_format = new SimpleDateFormat("yyyy-MM-dd");
 				try {
 					
-					Date fecha = eus_format.parse("2017/02/23");
-					pm.select(1,1,fecha);
+					Date fecha = eus_format.parse("2017-02-23");
+					pm.select(1,5,fecha).mostrarInfo();
+					
 					
 				} catch (ParseException e) {
 					// TODO Auto-generated catch block

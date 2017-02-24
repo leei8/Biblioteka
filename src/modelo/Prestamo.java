@@ -1,5 +1,6 @@
 package modelo;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Prestamo {
@@ -25,6 +26,13 @@ public class Prestamo {
 
 	//-----Metodos
 	
+	public void mostrarInfo() {
+	
+		System.out.println("Id de libro: " + this.id_libro);
+		System.out.println("Id de socio: " + this.id_socio);
+		System.out.println("Fecha: " + this.fecha);
+		System.out.println("Ha sido devuelto?: " + this.devuelto);
+	}
 	
 	public int getId_libro() {
 		return id_libro;

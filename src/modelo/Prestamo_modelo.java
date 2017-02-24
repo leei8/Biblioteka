@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class Prestamo_modelo extends Conector{
@@ -38,11 +39,12 @@ public class Prestamo_modelo extends Conector{
 	//PRESTAMO select id-s y fecha
 	public Prestamo select(int id_libro, int id_socio, java.util.Date fecha) {
 		try {
+			SimpleDateFormat eus_format = new SimpleDateFormat("yyyy-MM-dd");
 			Statement st = this.conexion.createStatement();
 			ResultSet rs = st.executeQuery("select * from prestamos "
 										 + "where id_libro='" + id_libro + "' and "
 										 		+ "id_socio='" + id_socio + "' and "
-										 		+ "fecha='" + fecha.toString() + "'");
+										 		+ "fecha='" + eus_format.format(fecha) + "'");
 			rs.next();
 			Prestamo prestamo = new Prestamo(id_libro, id_socio, fecha, rs.getBoolean("devuelto"));
 			return prestamo;

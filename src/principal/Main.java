@@ -49,7 +49,8 @@ public class Main {
 			System.out.println("7. Eliminar libro");
 			System.out.println("8. Eliminar socio");
 			System.out.println("9. Ver libros por autor");
-			System.out.println("10. Ver prestamo");
+			System.out.println("10. Realizar prestamo");
+			System.out.println("11. Ver prestamos de socio");
 			System.out.println("0. Salir del menú\n");
 			
 			opcion = Integer.parseInt(scan.nextLine());
@@ -156,20 +157,18 @@ public class Main {
 				break;
 			
 			case VER_PRESTAMOS_SOCIO:
-				//HAY QUE ARREGLAR ESTO
-//				SimpleDateFormat eus_format = new SimpleDateFormat("yyyy-MM-dd");
-//				try {
-//					Scanner scanfecha = new Scanner (System.in);
-//					Date fecha = eus_format.parse("2017-02-23");
-//					pm.select(1,5,fecha).mostrarInfo();
-//					
-//					
-//				} catch (ParseException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				}
-//				
+				
+				System.out.println("Introduce el nombre de un socio:");
+				String nombre_socio = scan.nextLine();
+				
+				id_socio = sm.selectSocioPorNombre(nombre_socio).getId();
+				
+				Iterator<Prestamo> j = pm.prestamosDeSocio(id_socio).iterator();
+				while (j.hasNext()){
+					j.next().mostrarInfo();
+				}
 				break;	
+					
 			
 			case SALIR:
 				System.out.println("Saliendo....");

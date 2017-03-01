@@ -27,6 +27,21 @@ public class Socio_modelo extends Conector {
 			return null;
 	}
 	
+	public Socio selectSocioPorNombre(String nombre) {
+		try {
+			Statement st = this.conexion.createStatement();
+			ResultSet rs = st.executeQuery("select * from socios where nombre='" + nombre + "'");
+			rs.next();
+			Socio socio = new Socio(rs.getInt("id"),nombre, rs.getString("apellido"),
+									rs.getString("direccion"), rs.getString("poblacion"),
+									rs.getString("provincia"), rs.getString("dni"));
+			return socio;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+			return null;
+	}
 			
 	public ArrayList<Socio> select() {
 		ArrayList<Socio> socios = new ArrayList<Socio>();

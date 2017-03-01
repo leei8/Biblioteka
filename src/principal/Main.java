@@ -20,7 +20,8 @@ public class Main {
 	public final static int ELIMINAR_LIBRO = 7;
 	public final static int ELIMINAR_SOCIO = 8;
 	public final static int VER_LIBROS_AUTOR = 9;
-	public final static int VER_PRESTAMO = 10;
+	public final static int REALIZAR_PRESTAMO = 10;
+	public final static int VER_PRESTAMOS_SOCIO = 11;
 	
 	public final static int SALIR = 0;
 	
@@ -143,20 +144,31 @@ public class Main {
 					i.next().mostrarInfo();
 				}
 				break;	
-			case VER_PRESTAMO:
+			
+			case REALIZAR_PRESTAMO:
+				System.out.println("Introduce un id de socio:");
+				int id_socio = Integer.parseInt(scan.nextLine());
+				System.out.println("Introduce un id de libro:");
+				int id_libro = Integer.parseInt(scan.nextLine());
 				
-				SimpleDateFormat eus_format = new SimpleDateFormat("yyyy-MM-dd");
-				try {
-					
-					Date fecha = eus_format.parse("2017-02-23");
-					pm.select(1,5,fecha).mostrarInfo();
-					
-					
-				} catch (ParseException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				
+				pm.insert(new Prestamo(id_socio, id_libro, new Date(), false));
+				System.out.println("Prestamo realizado! socio: " + sm.select(id_socio).getNombre()+ ", libro: " + lm.select(id_libro).getTitulo());
+				break;
+			
+			case VER_PRESTAMOS_SOCIO:
+				//HAY QUE ARREGLAR ESTO
+//				SimpleDateFormat eus_format = new SimpleDateFormat("yyyy-MM-dd");
+//				try {
+//					Scanner scanfecha = new Scanner (System.in);
+//					Date fecha = eus_format.parse("2017-02-23");
+//					pm.select(1,5,fecha).mostrarInfo();
+//					
+//					
+//				} catch (ParseException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+//				
 				break;	
 			
 			case SALIR:

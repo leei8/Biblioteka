@@ -35,7 +35,7 @@ public class Prestamo_modelo extends Conector {
 
 	}
 
-	// PRESTAMO select id-s y fecha
+
 	public Prestamo select(int id_libro, int id_socio, java.util.Date fecha) {
 		try {
 			SimpleDateFormat eus_format = new SimpleDateFormat("yyyy-MM-dd");
@@ -79,21 +79,20 @@ public class Prestamo_modelo extends Conector {
 			ps = this.conexion.prepareStatement(
 					"insert into " + "prestamos (id_libro,id_socio,fecha,devuelto)" + " values(?,?,?,?)");
 
-			ps.setInt(1, prestamo.getId_libro()); // lehen galdera ikurra bete
-			ps.setInt(2, prestamo.getId_socio()); // bigarren galdera ikurra
-													// bete
+			ps.setInt(1, prestamo.getId_libro()); // Rellena el primer ?
+			ps.setInt(2, prestamo.getId_socio()); // Rellena el segundo ?
 			java.sql.Date fecha_sql = new java.sql.Date(prestamo.getFecha().getTime());
-			ps.setDate(3, fecha_sql); // hirugarren galdera ikurra bete
-			ps.setBoolean(4, false); // laugarren galdera ikurra bete
-			// Al insertar un nuevo prestamo, nunca está devuelto, por eso
-			// siempre es false
+			ps.setDate(3, fecha_sql); // Rellena el tercer ?
+			ps.setBoolean(4, false); // Rellena el cuarto ?
+			// Al insertar un nuevo prestamo, nunca está devuelto, por eso siempre es false
 			ps.execute();
-			// Statement st = this.conexion.createStatement();
-			//
-			// st.execute("INSERT INTO `libros`(`titulo`, `autor`, `num_pag`)
-			// VALUES ('" + libro.getTitulo()+"', '"
-			// +libro.getAutor()+"','"+libro.getNum_pag()+ "')");
-
+			
+			/* De la otra manera, sin un prepared statement
+			 * Statement st = this.conexion.createStatement();
+			 * st.execute("INSERT INTO `libros`(`titulo`, `autor`, `num_pag`)
+			 * VALUES ('" + libro.getTitulo()+"', '"
+			 * +libro.getAutor()+"','"+libro.getNum_pag()+ "')");
+			 */
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

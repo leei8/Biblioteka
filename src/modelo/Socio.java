@@ -1,7 +1,9 @@
 package modelo;
 
 public class Socio {
+	
 	//-----Atributos
+	
 	int id;       
 	String nombre;
 	String apellido;
@@ -11,6 +13,7 @@ public class Socio {
 	String dni;
 	
 	//-----Constructores
+	
 	public Socio(int id, String nombre, String apellido, String direccion, String poblacion, String provincia,
 			String dni) {
 		super();
@@ -29,9 +32,8 @@ public class Socio {
 		// TODO Auto-generated constructor stub
 	}
 
-
-
 	//-----Metodos
+	
 	public void mostrarInfo(){
 		System.out.println("id: " + this.id
 				+ " nombre: " + this.nombre
@@ -42,6 +44,8 @@ public class Socio {
 				+ " dni: " + this.dni);
 	}
 
+	//-----Getters y Setters
+	
 	public int getId() {
 		return id;
 	}
@@ -97,11 +101,5 @@ public class Socio {
 	public void setDni(String dni) {
 		this.dni = dni;
 	}
-	
-	
 
-	
-	
-	
-	
 }

@@ -4,13 +4,16 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Prestamo {
-	// -----Atributos
+	
+	//-----Atributos
+	
 	int id_libro;
 	int id_socio;
 	Date fecha;
 	boolean devuelto;
 
 	//-----Constructores
+	
 	public Prestamo(int id_libro, int id_socio, Date fecha, boolean devuelto) {
 		super();
 		this.id_libro = id_libro;
@@ -28,7 +31,6 @@ public class Prestamo {
 	
 	public void mostrarInfo() {
 	
-		//socio, titulo, fecha y devuelto
 		Libro_modelo lm = new Libro_modelo("Biblioteka");
 		Socio_modelo sm = new Socio_modelo("Biblioteka");
 		
@@ -41,7 +43,7 @@ public class Prestamo {
 		System.out.println("Ha sido devuelto?: " + this.devuelto);
 	}
 	
-	
+	//-----Getters y Setters
 	
 	public int getId_libro() {
 		return id_libro;

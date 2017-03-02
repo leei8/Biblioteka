@@ -27,8 +27,6 @@ public class Main {
 	
 
 	public static void main(String[] args) {
-		// MAIN DE PRUEBA PARA LIBRO
-
 		// Instanciar
 
 		Libro_modelo lm = new Libro_modelo("biblioteka");
@@ -56,7 +54,7 @@ public class Main {
 			opcion = Integer.parseInt(scan.nextLine());
 			switch (opcion) {
 
-			case INSERTAR_LIBRO: // INSERT LIBRO
+			case INSERTAR_LIBRO:
 				System.out.println("Introduce el titulo del libro:");
 				String titulo = scan.nextLine();
 				
@@ -69,7 +67,6 @@ public class Main {
 				break;
 
 			case INSERTAR_SOCIO:
-				
 				System.out.println("Mete los siguientes datos requeridos.");
 				System.out.print("Nombre:");
 				String nombre = scan.nextLine();
@@ -91,7 +88,6 @@ public class Main {
 			case VER_LIBROS:
 				ArrayList<Libro> libros = lm.select();
 				Iterator<Libro> il = libros.iterator();
-				
 				while(il.hasNext()){
 					il.next().mostrarInfo();
 				}
@@ -100,7 +96,6 @@ public class Main {
 			case VER_SOCIOS:
 				ArrayList<Socio> socios = sm.select();
 				Iterator<Socio> is = socios.iterator();
-				
 				while(is.hasNext()){
 					is.next().mostrarInfo();
 				}
@@ -136,7 +131,6 @@ public class Main {
 				break;
 				
 			case VER_LIBROS_AUTOR:
-				
 				Scanner pedir_autor = new Scanner(System.in);
 				System.out.print("Mete el nombre de un autor para ver sus libros: ");
 				autor = pedir_autor.nextLine();
@@ -153,11 +147,12 @@ public class Main {
 				int id_libro = Integer.parseInt(scan.nextLine());
 				
 				pm.insert(new Prestamo(id_socio, id_libro, new Date(), false));
-				System.out.println("Prestamo realizado! socio: " + sm.select(id_socio).getNombre()+ ", libro: " + lm.select(id_libro).getTitulo());
+				System.out.println("Prestamo realizado! socio: " 
+									+ sm.select(id_socio).getNombre()+ ", libro: " 
+									+ lm.select(id_libro).getTitulo());
 				break;
 			
 			case VER_PRESTAMOS_SOCIO:
-				
 				System.out.println("Introduce el nombre de un socio:");
 				String nombre_socio = scan.nextLine();
 				
@@ -178,7 +173,5 @@ public class Main {
 				System.out.println("Elige una de las opciones del menú.");
 			}
 		} while (opcion != 0);
-
 	}
-
 }

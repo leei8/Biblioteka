@@ -3,12 +3,14 @@ package modelo;
 public class Libro {
 	
 	//-----Atributos
+	
 	private int id;
 	private String titulo;
 	private String autor;
 	private int num_pag;
 	
 	//-----Constructores
+	
 	public Libro(int id, String titulo, String autor, int num_pag) {
 		super();
 		this.id = id;
@@ -22,9 +24,8 @@ public class Libro {
 		// TODO Auto-generated constructor stub
 	}
 
-
-
 	//-----Metodos
+	
 	public void mostrarInfo(){
 		System.out.println("id: "+ this.id
 				+ " titulo: " + this.titulo
@@ -32,6 +33,8 @@ public class Libro {
 				+ " paginas: " + this.num_pag);
 	}
 
+	//-----Getters y Setters
+	
 	public int getId() {
 		return id;
 	}
@@ -63,6 +66,5 @@ public class Libro {
 	public void setNum_pag(int num_pag) {
 		this.num_pag = num_pag;
 	}
-	
 	
 }
